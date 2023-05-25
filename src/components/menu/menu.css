@@ -1,0 +1,13 @@
+.p-menuitem {
+    position: relative;
+  }
+  
+  .p-menuitem:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -5px; /* Adjust the position of the separator as needed */
+    height: 60%;
+    border-right: 1px solid #ccc; /* Customize the color and style of the separator */
+    transform: translateY(-50%);
+  }

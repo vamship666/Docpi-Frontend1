@@ -1,0 +1,27 @@
+.NavContainer{
+    display: flex;
+  justify-content: space-between;
+}
+
+.p-menuitem-text{
+    color: #f39058;
+    font-weight: bold;
+     text-align: center;
+}
+
+.p-menubar {
+  justify-content: space-between !important;
+  
+}
+.p-menubar ul.p-menubar-root-list {
+  flex-grow: 1 !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.p-menubar .p-menubar-end {
+  margin: 0 !important;
+}
+
+.p-menuitem-text{
+  color: #f39058 !important;
+}

@@ -1,0 +1,64 @@
+@import '/node_modules/primeflex/primeflex.css';
+@import 'primeicons/primeicons.css';
+
+html, body, #root {
+    min-height: 100%;
+    height: 100%;
+  }
+  
+  .App {
+    text-align: center;
+    color: #f00;
+  }
+  
+  .p-card {
+    &.login-card {
+      padding: 3rem 1rem;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 10px 12px rgb(220 220 220 / 24%);
+    }
+  }
+  
+  .App-logo {
+    height: 40px;
+    width: 100%;
+    background-image: url('./assets/logo.svg');
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .card {
+    background: var(--surface-card);
+    padding: 0;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

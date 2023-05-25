@@ -1,0 +1,25 @@
+.p-filter-column{
+    width: 100%
+}
+
+
+input.p-inputtext.p-component.p-column-filter {
+    width: 200px;
+    height: 40px;
+}
+
+.p-datatable-tfoot{
+    display:none
+}
+
+.p-column-header-content{
+    color: #535c66;
+}
+.p-column-title{
+    /* color: #f00; */
+    font-family: Serif, "Times New Roman", Times, "Arial";
+    
+}
+.p-icon{
+    color: #535c66;
+}
