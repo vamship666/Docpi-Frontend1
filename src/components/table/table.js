@@ -6,6 +6,9 @@ import { DataService } from '../service/data';
 import { useDispatch, useSelector } from 'react-redux';
 import { dfActions } from '../../store/df-slice';
 import { columnActions } from '../../store/column-slice';
+///////////////
+// import { GlobalFilter } from './globalfilter.js'
+import { InputText } from 'primereact/inputtext';
 
 import './table.css';
 export default function LazyLoadDemo({filename}) {
@@ -18,6 +21,7 @@ export default function LazyLoadDemo({filename}) {
     const [selectAll, setSelectAll] = useState(false);
     const [selectedData, setSelectedData] = useState(null);
     const dispatch = useDispatch();
+
 
     // const filterInstructions = columns ? columns.reduce((obj, key) => {
     //     obj[key] = { value: '', matchMode: 'contains' };
@@ -35,7 +39,7 @@ export default function LazyLoadDemo({filename}) {
     //     }
     // }, [columns])
 
-    
+    const [keyword, setKeyword] = useState('');
     
     const [lazyState, setlazyState] = useState({
         first: 0,
@@ -81,16 +85,29 @@ export default function LazyLoadDemo({filename}) {
 
 
     useEffect(() => {
-        loadLazyData();
+        loadLazyData(null);
     }, [lazyState]);
 
-    const loadLazyData = () => {
+    useEffect(() => {
+        loadLazyData(keyword);
+    }, [keyword]);
+
+    const loadLazyData = (keyword) => {
         setLoading(true);
         console.log('calling loadLazyData')
         if (networkTimeout) {
             clearTimeout(networkTimeout);
         }
-
+    
+        let tableparam = lazyState
+        if (keyword!=null){
+            tableparam.keyword=keyword
+            console.log(tableparam)
+        
+        }
+        else {
+            tableparam.keyword=null
+        }
         //imitate delay of a backend call
         networkTimeout = setTimeout(() => {
             console.log(lazyState)
@@ -153,11 +170,33 @@ export default function LazyLoadDemo({filename}) {
         }
     };
 
-    
+
+    const handleInputChange = (event) => {
+      let keyword = event.target.value;
+      console.log(keyword);
+      if (keyword == "") {
+        keyword = null
+      }
+      setKeyword(keyword);
+    //   sendKeywordToBackend(keyword);
+    };
+
+    const GlobalFilter = (
+        <div className="flex justify-content-end">
+          <span className="p-input-icon-left">
+            <i className="pi pi-search" />
+            <InputText
+              onChange={handleInputChange}
+              placeholder="Keyword Search"
+              value={keyword}
+            />
+          </span>
+        </div>
+      );
 
     return (
         <div className="card">
-            <DataTable value={dyanmicData} lazy filterDisplay="row" dataKey="id" paginator scrollable scrollHeight="1000px"
+            <DataTable header = {GlobalFilter} value={dyanmicData} lazy filterDisplay="row" dataKey="id" paginator scrollable scrollHeight="1000px"
                     first={lazyState.first} rows={1000} totalRecords={totalRecords} onPage={onPage}
                     onSort={onSort} sortField={lazyState.sortField} sortOrder={lazyState.sortOrder}
                     onFilter={onFilter} filters={lazyState.filters} loading={loading} tableStyle={{ minWidth: '75rem' }}
@@ -167,6 +206,7 @@ export default function LazyLoadDemo({filename}) {
                 )) : null}
             </DataTable>
         </div>
-    );
+     );
 }
-        
+
+

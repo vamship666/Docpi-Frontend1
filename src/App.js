@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {Home} from './components/Home/Home';
+import {Home} from './components/Home/Home.js';
 import {SigninComponent} from './components/form/signin'
 import {SignupComponent} from './components/form/signup'
 import './App.css'
