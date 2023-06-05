@@ -35,11 +35,11 @@ export function GlobalFilter() {
     <div className="flex justify-content-end">
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
-        <InputText
+        {/* <InputText
           onChange={handleInputChange}
           placeholder="Keyword Search"
           value={keyword}
-        />
+        /> */}
       </span>
     </div>
   );
