@@ -5,7 +5,7 @@ import Sample from "../table/sample";
 import NavBar from '../Navbar/navbar'
 import UploadFile from '../upload/upload'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { authActions } from '../../store/auth-slice';
 import ModelComponent from '../model/model';
 import SortAndFilter from '../sortFilter/index'
@@ -34,9 +34,15 @@ export function Home() {
     
     const auth = useSelector((state) => state.auth.login);
 
-   if(auth == null){
-    navigate('/signin')
+//    if(auth == null){
+//     navigate('/signin')
+//    }
+if(auth === null){
+    console.log('redirect')
+    //  navigate("/signin")
+     return <Navigate to="/signin" />;
    }
+   
     return (
         <Fragment> 
             <NavBar />

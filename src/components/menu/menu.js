@@ -37,14 +37,14 @@ export default function MenuComponent() {
     ];
 
     if(file){
-        items.push({
-            label: 'Sort and Filter',
-            command:()=>{
-                dispatch(sortAndFilterActions.setModel())
-            },
+        // items.push({
+        //     label: 'Sort and Filter',
+        //     command:()=>{
+        //         dispatch(sortAndFilterActions.setModel())
+        //     },
             
-        },
-        
+        // },
+        items.push(
         {
                     label: 'logout',
                     icon: 'pi pi-sign-out',

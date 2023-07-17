@@ -23,3 +23,16 @@ input.p-inputtext.p-component.p-column-filter {
 .p-icon{
     color: #535c66;
 }
+
+
+.input-width {
+    width: 550px;
+}
+
+.box {
+    width: 620px;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+  }

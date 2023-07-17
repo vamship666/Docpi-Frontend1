@@ -9,5 +9,8 @@ export const Table = {
             body: data,
           }).then((res) => res.json());
     }
-  };
+
+};
+
+  
   
